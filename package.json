@@ -3,9 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage" : "https://marxattax.github.io/kasa-react/",
   "scripts": {
     "dev": "vite",
-    "homepage" : "https://marxattax.github.io/kasa-react/",
     "predeploy" : "npm run build",
     "deploy" : "gh-pages -d build",
     "build": "vite build",
