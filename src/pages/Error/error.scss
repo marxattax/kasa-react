@@ -1,0 +1,38 @@
+.error {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: bottom;
+    gap: 100px;
+
+        a {
+            font-size: 18px;
+            color: black;
+            text-decoration: underline;
+        }
+
+        .title {
+            color: var(--main-bg-color);
+            font-size: 260px;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            color: var(--main-bg-color);
+            font-size: 36px;
+            text-align: center;
+        }
+
+}
+
+@media (max-width: 726px) {
+    .error {
+        .title {
+            font-size: 98px;
+        }
+        .subtitle {
+            font-size: 18px;
+        }
+    }
+}
