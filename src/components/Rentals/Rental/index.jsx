@@ -1,18 +1,28 @@
 import { useState, useEffect } from "react";
-import { getOneRental } from "../../../libraries/functions";
+import { getOneRental } from "../../../libraries/functionsAPI";
 import RentalItem from "../RentalItem";
-import Error from "../../../pages/Error";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Rental() {
-    let { id } = useParams()
+    const { id } = useParams()
     const [rental, setRental] = useState(null);
+    const navigate = useNavigate()
 
     const displayRental = () => 
-        (rental ? <RentalItem logement={rental} key={rental.id} /> : <Error />);
+        (rental ? <RentalItem logement={rental} key={rental.id} /> : "Chargement");
 
     useEffect(() => {
-        getOneRental(setRental, id);
+        async function getItem() {
+            const data = await getOneRental(id);
+            if (data == null) {
+                navigate('/*');
+            }
+            else {
+                setRental(data);
+            }
+          }
+          getItem();
     }, [])
 
     return <div>
