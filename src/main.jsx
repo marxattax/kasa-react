@@ -12,8 +12,11 @@ createRoot(document.getElementById('root')).render(
     <Router>
       <ScrollToTop />
       <Header />
-      <App />
+      <main>
+        <App />
+      </main>
       <Footer />
     </Router>
   </StrictMode>,
 )
+
