@@ -12,6 +12,7 @@
             cursor: pointer;
             z-index:5;
             font-weight: bold;
+            transition: 300ms linear;
         }
 
         .content {
@@ -19,7 +20,7 @@
             visibility: hidden;
             height: 0;
             transform: translateY(-30px);
-            transition: transform 300ms linear;
+            transition: 300ms linear;
             color: var(--main-color);
             padding: 15px 25px;
             margin-bottom: 20px;
@@ -35,5 +36,6 @@
             border-left: 3px solid white;
             transform: rotate(45deg);
             border-top-left-radius: 2px;
+            transition: 300ms linear;
         }
 }

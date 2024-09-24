@@ -1,35 +1,38 @@
 import './collapse.scss'
+import { useState } from 'react'
 
-function ClickCollapse() {
-  const depliants = document.querySelectorAll(".collapse")
-  for(const depliant of depliants) {
-      const depliantTitle = depliant.querySelector(".title")
-      const depliantContent = depliant.querySelector(".content")
-      const depliantArrow = depliant.querySelector(".arrow")
-
-        depliantTitle.onclick = function() {
-          if(depliantContent.style.visibility === "visible") {
-              depliantContent.style = "visibility: hidden; height: 0; transform: translateY(-30px); transition: all 300ms linear;"
-              depliantArrow.style = "transform:rotate(45deg);transition:300ms linear;"
-              depliantTitle.style = "border-radius: 10px;"
-          }
-          else {
-              depliantContent.style = "visibility: visible; height: auto; transform: translateY(0); transition: all 300ms linear;"
-              depliantArrow.style = "top: 17px;transform:rotate(-135deg);transition:300ms linear;"
-              depliantTitle.style = "border-radius: 10px 10px 0 0"
-          }
-        }
-  }
-}
 
 function Collapse(props) {
+
+  const [open, setOpen] = useState(false);
+  const styles = open ? {
+    content: { 
+      visibility: "visible",
+      height: "auto",
+      transform: "translateY(0)",
+      transition: "300ms linear"
+    },
+    arrow: {
+      top: "17px",
+      transform: "rotate(-135deg",
+      transition: "300ms linear"
+    },
+    title: {
+      borderRadius: "10px 10px 0 0",
+      transition: "300ms linear"
+    }
+  } : {} ;
+
+  const openCollapse = () =>
+    (open == false ? setOpen(true) : setOpen(false))
+
   return (
     <div className="collapse">
-      <div className="title" ref={ClickCollapse}>
+      <div className="title" style={styles.title} onClick={openCollapse}>
         {props.children[0]}
-        <span className="arrow"></span>
+        <span className="arrow" style={styles.arrow}></span>
       </div>
-      <div className="content">
+      <div className="content" style={styles.content}>
         {props.children[1]}
       </div>
     </div>
