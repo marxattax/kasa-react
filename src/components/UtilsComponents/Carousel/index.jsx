@@ -8,7 +8,7 @@ function Carousel(props) {
     const cover = <img className="carousel-img" src={listPictures[currentImg]} alt="Carousel" /> ;
 
     const prevImg= () => {
-        currentImg > 0 ? (setCurrentImg(currentImg -1), cover.sty): setCurrentImg(listPictures.length -1);
+        currentImg > 0 ? setCurrentImg(currentImg -1): setCurrentImg(listPictures.length -1);
     }
     const nextImg = () => {
         currentImg < listPictures.length -1 ? setCurrentImg(currentImg +1) : setCurrentImg(0);
